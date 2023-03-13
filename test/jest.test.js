@@ -53,7 +53,7 @@ describe('DELETE /users/:id', () => {
     const userId = response1.body.data[0].id;
 
     const response2 = await request(apiUrl).delete(`/users/${userId}`);
-    console.log(response2.body); // tambahan console.log
+    console.log(response2.body); // tambahan console.logg
     expect(response2.status).to.equal(204);
 
     const response3 = await request(apiUrl).get(`/users/${userId}`);
