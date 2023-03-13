@@ -8,6 +8,7 @@ describe('GET /users', () => {
   it('should return an array of users', async () => {
     const response = await request(apiUrl)
     .get('/users?page=2');
+    console.log(response.body); // tambahan console.log
     expect(response.status).to.equal(200);
     expect(response.body.data).to.be.an('array');
   });
@@ -21,6 +22,7 @@ describe('POST /users', () => {
         name: 'John Doe',
         job: 'Software Engineer'
       });
+    console.log(response.body); // tambahan console.log
     expect(response.status).to.equal(201);
     expect(response.body.name).to.equal('John Doe');
     expect(response.body.job).to.equal('Software Engineer');
@@ -35,11 +37,12 @@ describe('PUT /users/:id', () => {
     const response2 = await request(apiUrl)
       .put(`/users/${userId}`)
       .send({
-        name: 'Jane Doe',
+        name: 'Jane Doee',
         job: 'Web Developer'
       });
+    console.log(response2.body); // tambahan console.log
     expect(response2.status).to.equal(200);
-    expect(response2.body.name).to.equal('Jane Doe');
+    expect(response2.body.name).to.equal('Jane Doee');
     expect(response2.body.job).to.equal('Web Developer');
   });
 });
@@ -50,9 +53,11 @@ describe('DELETE /users/:id', () => {
     const userId = response1.body.data[0].id;
 
     const response2 = await request(apiUrl).delete(`/users/${userId}`);
+    console.log(response2.body); // tambahan console.log
     expect(response2.status).to.equal(204);
 
     const response3 = await request(apiUrl).get(`/users/${userId}`);
+    console.log(response3.body); // tambahan console.log
     expect(response3.status).to.equal(200);
   });
 });
