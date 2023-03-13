@@ -19,12 +19,12 @@ describe('POST /users', () => {
     const response = await request(apiUrl)
       .post('/users')
       .send({
-        name: 'John Doe',
+        name: 'John Do',
         job: 'Software Engineer'
       });
     console.log(response.body); // tambahan console.log
     expect(response.status).to.equal(201);
-    expect(response.body.name).to.equal('John Doe');
+    expect(response.body.name).to.equal('John Do');
     expect(response.body.job).to.equal('Software Engineer');
   });
 });
